@@ -5,7 +5,7 @@ import com.example.minerva.domain.model.ArtworkDetail
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface ArtworkAITApi {
+interface ArtworkAICApi {
 
     @GET("/v1/artworks?page=1&limit=50&fields=id,title,image_id,artist_title")
     suspend fun getArtworks(): List<Artwork>
