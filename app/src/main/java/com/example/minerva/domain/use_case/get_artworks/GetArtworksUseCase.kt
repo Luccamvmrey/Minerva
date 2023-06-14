@@ -1,6 +1,7 @@
 package com.example.minerva.domain.use_case.get_artworks
 
 import com.example.minerva.domain.model.Artwork
+import com.example.minerva.domain.model.ArtworkList
 import com.example.minerva.domain.model.Resource
 import com.example.minerva.domain.model.Resource.Error
 import com.example.minerva.domain.model.Resource.Loading
@@ -15,24 +16,24 @@ import javax.inject.Inject
 class GetArtworksUseCase @Inject constructor(
     private val repo: ArtworkRepository
 ) {
-    operator fun invoke(): Flow<Resource<List<Artwork>>> = flow {
+    operator fun invoke(): Flow<Resource<ArtworkList>> = flow {
         try {
             // Emits Loading state for resource
-            emit(Loading<List<Artwork>>())
+            emit(Loading<ArtworkList>())
             // Tries to get artworks from API
             val artworks = repo.getArtworks()
             // If Successful alters state from Loading to Success and passes artwork list
-            emit(Success<List<Artwork>>(artworks))
+            emit(Success<ArtworkList>(artworks))
         } catch (e: HttpException) {
             // Emits exception message in case of failure to fetch data
             emit(
-                Error<List<Artwork>>(
+                Error<ArtworkList>(
                 e.localizedMessage ?: "Ocorreu um erro inesperado!"
                 )
             )
         } catch (e: IOException) {
             emit(
-                Error<List<Artwork>> (
+                Error<ArtworkList>(
                 "Não foi possível acessar o servidor, por favor, cheque sua conexão" +
                         " com a internet"
                 )

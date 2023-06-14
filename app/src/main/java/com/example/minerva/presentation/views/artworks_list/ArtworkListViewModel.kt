@@ -4,6 +4,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.minerva.domain.model.ArtworkList
 import com.example.minerva.domain.model.Resource.Error
 import com.example.minerva.domain.model.Resource.Loading
 import com.example.minerva.domain.model.Resource.Success
@@ -30,7 +31,7 @@ class ArtworkListViewModel @Inject constructor(
             when (result) {
                 is Success -> {
                     _state.value = ArtworkListState(
-                        artworks = result.data ?: emptyList()
+                        artworks = result.data ?: ArtworkList(emptyList())
                     )
                 }
                 is Error -> {
@@ -39,7 +40,9 @@ class ArtworkListViewModel @Inject constructor(
                     )
                 }
                 is Loading -> {
-                    _state.value = ArtworkListState(isLoading = true)
+                    _state.value = ArtworkListState(
+                        isLoading = true
+                    )
                 }
             }
         }.launchIn(viewModelScope)

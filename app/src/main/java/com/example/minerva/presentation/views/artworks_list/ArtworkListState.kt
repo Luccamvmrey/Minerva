@@ -1,9 +1,9 @@
 package com.example.minerva.presentation.views.artworks_list
 
-import com.example.minerva.domain.model.Artwork
+import com.example.minerva.domain.model.ArtworkList
 
 data class ArtworkListState(
     val isLoading: Boolean = false,
-    val artworks: List<Artwork> = emptyList(),
+    val artworks: ArtworkList = ArtworkList(emptyList()),
     val error: String = ""
 )

@@ -1,6 +1,7 @@
 package com.example.minerva.presentation.views.artworks_list.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -27,16 +28,22 @@ import com.example.minerva.core.Constants.BASE_URL_IMAGE_END
 import com.example.minerva.core.Constants.BASE_URL_IMAGE_START
 import com.example.minerva.domain.model.Artwork
 import com.example.minerva.presentation.ui.theme.Beige
+import com.example.minerva.presentation.ui.theme.NaplesYellow
 
 @Composable
 fun ArtworkCard(
     artwork: Artwork,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onArtworkClick: (Artwork) -> Unit
 ) {
     val imageUrl = BASE_URL_IMAGE_START + artwork.imageId + BASE_URL_IMAGE_END
 
     Card(
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier
+            .fillMaxWidth()
+            .clickable {
+                onArtworkClick(artwork)
+            },
         shape = RoundedCornerShape(16.dp),
         elevation = CardDefaults.cardElevation(
             defaultElevation = 4.dp
@@ -44,7 +51,7 @@ fun ArtworkCard(
     ) {
         Box(
             modifier = Modifier
-                .height(360.dp)
+                .height(200.dp)
         ) {
             //Image
             AsyncImage(
@@ -62,7 +69,7 @@ fun ArtworkCard(
                                 Color.Transparent,
                                 Color.Black
                             ),
-                            startY = 460f
+                            startY = 250f
                         )
                     )
             )
@@ -81,15 +88,15 @@ fun ArtworkCard(
                         text = artwork.title!!,
                         style = TextStyle(
                             color = Beige,
-                            fontSize = 18.sp
+                            fontSize = 14.sp
                         ),
                         textAlign = TextAlign.Start
                     )
                     Text(
                         text = artwork.artistTitle ?: "Artista desconhecido",
                         style = TextStyle(
-                            color = Beige,
-                            fontSize = 16.sp
+                            color = NaplesYellow,
+                            fontSize = 12.sp
                         )
                     )
                 }

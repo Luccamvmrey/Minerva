@@ -2,7 +2,7 @@ package com.example.minerva.domain.model
 
 import com.google.gson.annotations.SerializedName
 
-data class ArtworkDetail(
+data class ArtworkList(
     @SerializedName("data")
-    val artwork: ArtworkDetailData
+    val artworks: List<Artwork>
 )
