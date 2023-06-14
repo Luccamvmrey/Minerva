@@ -9,7 +9,6 @@ import javax.inject.Inject
 class ArtworkRepositoryImpl @Inject constructor(
     private val api: ArtworkAICApi
 ) : ArtworkRepository {
-
     override suspend fun getArtworks(): List<Artwork> {
         return api.getArtworks()
     }
