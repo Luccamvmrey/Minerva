@@ -9,7 +9,7 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.RestartAlt
+import androidx.compose.material.icons.rounded.GridView
 import androidx.compose.material.icons.rounded.Search
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
@@ -21,7 +21,11 @@ import com.example.minerva.presentation.ui.theme.Beige
 import com.example.minerva.presentation.ui.theme.DeepBlue
 
 @Composable
-fun TopBarArtworksList() {
+fun TopBarArtworksList(
+    onClickSearch: () -> Unit,
+    gridCellsState: Int,
+    onClickChangeGrid: (Int) -> Unit
+) {
     TopAppBar(
         backgroundColor = DeepBlue,
         contentColor = Beige,
@@ -41,16 +45,30 @@ fun TopBarArtworksList() {
                 color = Beige
             )
             Row {
-                IconButton(onClick = { /*TODO*/ }) {
+                IconButton(
+                    onClick = {
+                        onClickSearch()
+                    }
+                ) {
                     Icon(
                         imageVector = Icons.Rounded.Search,
                         contentDescription = "Search",
                         tint = Beige
                     )
                 }
-                IconButton(onClick = { /*TODO*/ }) {
+                IconButton(
+                    onClick = {
+                        onClickChangeGrid(
+                            if (gridCellsState == 1) {
+                                2
+                            } else {
+                                1
+                            }
+                        )
+                    }
+                ) {
                     Icon(
-                        imageVector = Icons.Rounded.RestartAlt,
+                        imageVector = Icons.Rounded.GridView,
                         contentDescription = "Reload",
                         tint = Beige
                     )

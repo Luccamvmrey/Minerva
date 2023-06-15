@@ -21,12 +21,12 @@ fun ProgressBarMinerva() {
     }
 
     LaunchedEffect(Unit) {
-        color.animateTo(Cerise, animationSpec = tween(500))
-        color.animateTo(MediumSlateBlue, animationSpec = tween(500))
-        color.animateTo(NaplesYellow, animationSpec = tween(500))
-        color.animateTo(Cerise, animationSpec = tween(500))
-        color.animateTo(MediumSlateBlue, animationSpec = tween(500))
-        color.animateTo(NaplesYellow, animationSpec = tween(500))
+        color.animateTo(Cerise, animationSpec = tween(1000))
+        color.animateTo(MediumSlateBlue, animationSpec = tween(1000))
+        color.animateTo(NaplesYellow, animationSpec = tween(1000))
+        color.animateTo(Cerise, animationSpec = tween(1000))
+        color.animateTo(MediumSlateBlue, animationSpec = tween(1000))
+        color.animateTo(NaplesYellow, animationSpec = tween(1000))
     }
 
     Box(

@@ -26,20 +26,22 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.minerva.core.Constants.BASE_URL_IMAGE_END
 import com.example.minerva.core.Constants.BASE_URL_IMAGE_START
-import com.example.minerva.domain.model.Artwork
+import com.example.minerva.domain.model.artwork.Artwork
 import com.example.minerva.presentation.ui.theme.Beige
 import com.example.minerva.presentation.ui.theme.NaplesYellow
 
 @Composable
 fun ArtworkCard(
     artwork: Artwork,
-    modifier: Modifier = Modifier,
+    gridCellsState: Int,
     onArtworkClick: (Artwork) -> Unit
 ) {
     val imageUrl = BASE_URL_IMAGE_START + artwork.imageId + BASE_URL_IMAGE_END
 
+    val scale = if (gridCellsState == 2) 1 else 2
+
     Card(
-        modifier = modifier
+        modifier = Modifier
             .fillMaxWidth()
             .clickable {
                 onArtworkClick(artwork)
@@ -51,7 +53,7 @@ fun ArtworkCard(
     ) {
         Box(
             modifier = Modifier
-                .height(200.dp)
+                .height((200 * scale).dp)
         ) {
             //Image
             AsyncImage(
@@ -69,7 +71,7 @@ fun ArtworkCard(
                                 Color.Transparent,
                                 Color.Black
                             ),
-                            startY = 250f
+                            startY = 250f * scale
                         )
                     )
             )
