@@ -1,10 +1,7 @@
 package com.example.minerva.presentation.views.artworks_list.components
 
-import android.content.ContentValues.TAG
-import android.util.Log
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -112,7 +109,6 @@ fun TopBarArtworksList(
                         IconButton(
                             onClick = {
                                 if (query.isNotBlank()) {
-                                    Log.d(TAG, query)
                                     viewModel.searchArtworks(query)
                                 }
                             }

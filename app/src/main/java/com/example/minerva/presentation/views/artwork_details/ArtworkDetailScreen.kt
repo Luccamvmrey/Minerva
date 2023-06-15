@@ -49,7 +49,7 @@ fun ArtworkDetailScreen(
                         imageId = state.artwork.artwork.imageId!!,
                         artworkTitle = state.artwork.artwork.title!!
                     )
-                    Spacer(modifier = Modifier.height(48.dp))
+                    Spacer(modifier = Modifier.height(12.dp))
                     ArtworkDetails(
                         artwork = state.artwork.artwork
                     )
