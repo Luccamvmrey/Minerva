@@ -1,5 +1,7 @@
 package com.example.minerva.presentation.views.artworks_list.components
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.focusable
@@ -100,11 +102,17 @@ fun TopBarArtworksList(
                     modifier = Modifier
                         .fillMaxWidth(0.9f * searchBarWidth)
                         .fillMaxHeight(0.9f)
-                        .focusRequester(focusRequester),
+                        .focusRequester(focusRequester)
+                        .onFocusChanged {
+                            if (!it.hasFocus) {
+                                searchBarOpen = false
+                            }
+                        },
                     trailingIcon = {
                         IconButton(
                             onClick = {
                                 if (query.isNotBlank()) {
+                                    Log.d(TAG, query)
                                     viewModel.searchArtworks(query)
                                 }
                             }

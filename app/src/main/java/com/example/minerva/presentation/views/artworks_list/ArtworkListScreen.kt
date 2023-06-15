@@ -1,5 +1,7 @@
 package com.example.minerva.presentation.views.artworks_list
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.ExperimentalMaterialApi
@@ -14,6 +16,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.minerva.presentation.views.artworks_list.components.ArtworksColumn
@@ -41,6 +45,8 @@ fun ArtworkListScreen(
         mutableIntStateOf(2)
     }
 
+    val focusManager = LocalFocusManager.current
+
     Scaffold(
         topBar = {
             TopBarArtworksList(
@@ -56,6 +62,9 @@ fun ArtworkListScreen(
             modifier = Modifier
                 .padding(contentPadding)
                 .pullRefresh(pullRefreshState)
+                .clickable {
+                    focusManager.clearFocus()
+                }
         ) {
             BackgroundBox {
                 ArtworksColumn(

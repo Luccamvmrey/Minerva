@@ -1,5 +1,7 @@
 package com.example.minerva.domain.use_case.search_artworks
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import com.example.minerva.domain.model.Resource
 import com.example.minerva.domain.model.Resource.Error
 import com.example.minerva.domain.model.Resource.Loading
@@ -18,10 +20,9 @@ class SearchArtworksUseCase @Inject constructor(
     operator fun invoke(query: String): Flow<Resource<ArtworkList>> = flow {
         try {
             emit(Loading<ArtworkList>())
-
-            val filteredQuery = query.lowercase().trim { it <= ' ' }
-
-            val artworks = repo.searchArtworks(filteredQuery)
+            val search = "search?q=$query"
+            Log.d(TAG, search)
+            val artworks = repo.searchArtworks(search)
             emit(Success<ArtworkList>(artworks))
         } catch (e: HttpException) {
             emit(
