@@ -1,4 +1,4 @@
-package com.example.minerva.domain.model
+package com.example.minerva.domain.model.artwork
 
 import com.google.gson.annotations.SerializedName
 

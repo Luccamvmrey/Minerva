@@ -4,7 +4,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.minerva.domain.model.ArtworkList
+import com.example.minerva.domain.model.artwork.ArtworkList
 import com.example.minerva.domain.model.Resource.Error
 import com.example.minerva.domain.model.Resource.Loading
 import com.example.minerva.domain.model.Resource.Success
@@ -26,7 +26,7 @@ class ArtworkListViewModel @Inject constructor(
         getArtworks()
     }
 
-    private fun getArtworks() {
+    fun getArtworks() {
         getArtworksUseCase().onEach { result ->
             when (result) {
                 is Success -> {

@@ -1,7 +1,6 @@
 package com.example.minerva.domain.use_case.get_artwork
 
-import com.example.minerva.domain.model.ArtworkDetail
-import com.example.minerva.domain.model.ArtworkDetailData
+import com.example.minerva.domain.model.artwork_detail.ArtworkDetail
 import com.example.minerva.domain.model.Resource
 import com.example.minerva.domain.model.Resource.Loading
 import com.example.minerva.domain.model.Resource.Success

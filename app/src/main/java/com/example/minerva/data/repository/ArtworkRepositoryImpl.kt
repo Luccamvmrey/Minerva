@@ -1,8 +1,8 @@
 package com.example.minerva.data.repository
 
 import com.example.minerva.data.remote.ArtworkAICApi
-import com.example.minerva.domain.model.ArtworkDetail
-import com.example.minerva.domain.model.ArtworkList
+import com.example.minerva.domain.model.artwork_detail.ArtworkDetail
+import com.example.minerva.domain.model.artwork.ArtworkList
 import com.example.minerva.domain.repository.ArtworkRepository
 import javax.inject.Inject
 

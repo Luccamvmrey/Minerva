@@ -1,7 +1,7 @@
 package com.example.minerva.presentation.views.artwork_details
 
-import com.example.minerva.domain.model.ArtworkDetail
-import com.example.minerva.domain.model.ArtworkDetailData
+import com.example.minerva.domain.model.artwork_detail.ArtworkDetail
+import com.example.minerva.domain.model.artwork_detail.ArtworkDetailData
 
 data class ArtworkDetailState(
     val isLoading: Boolean = false,
@@ -10,9 +10,8 @@ data class ArtworkDetailState(
             artworkId = "",
             title = "",
             imageId = "",
-            altText = "",
             artistTitle = "",
-            dateDisplay = ""
+            dateDisplay = "",
         )
     ),
     val error: String = ""

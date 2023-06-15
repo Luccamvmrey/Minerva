@@ -10,7 +10,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.minerva.domain.model.ArtworkDetailData
+import com.example.minerva.domain.model.artwork_detail.ArtworkDetailData
 import com.example.minerva.presentation.ui.theme.Beige
 
 @Composable
@@ -20,7 +20,7 @@ fun ArtworkDetails(
     val title = artwork.title ?: "Unknown Title"
     val artistTitle = artwork.artistTitle ?: "Unknown Artist"
     val dateDisplay = artwork.dateDisplay ?: "Unknown Date"
-//    val altText = artwork.altText ?: "No Description Available"
+    val altText = artwork.extraData?.altText ?: "No Description Available"
 
     Text(
         text = title,
@@ -48,12 +48,12 @@ fun ArtworkDetails(
         textAlign = TextAlign.Start
     )
     Spacer(modifier = Modifier.height(24.dp))
-//    Text(
-//        text = altText,
-//        style = TextStyle(
-//            fontSize = 18.sp,
-//            color = Beige
-//        ),
-//        textAlign = TextAlign.Justify
-//    )
+    Text(
+        text = altText,
+        style = TextStyle(
+            fontSize = 18.sp,
+            color = Beige
+        ),
+        textAlign = TextAlign.Justify
+    )
 }
