@@ -11,4 +11,7 @@ interface ArtworkAICApi {
 
     @GET("v1/artworks/{id}?fields=id,title,image_id,alt_text,artist_title,date_display,thumbnail")
     suspend fun getArtworkById(@Path("id") artworkId: String): ArtworkDetail
+
+    @GET("v1/artworks?search?q={query}&page=1&limit=50&fields=id,title,image_id,artist_title")
+    suspend fun searchArtworks(@Path("query") query: String): ArtworkList
 }

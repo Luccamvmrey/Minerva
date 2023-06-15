@@ -7,4 +7,6 @@ interface ArtworkRepository {
     suspend fun getArtworks(): ArtworkList
 
     suspend fun getArtworkById(artworkId: String): ArtworkDetail
+
+    suspend fun searchArtworks(query: String): ArtworkList
 }

@@ -16,4 +16,8 @@ class ArtworkRepositoryImpl @Inject constructor(
     override suspend fun getArtworkById(artworkId: String): ArtworkDetail {
         return api.getArtworkById(artworkId)
     }
+
+    override suspend fun searchArtworks(query: String): ArtworkList {
+        return api.searchArtworks(query)
+    }
 }
