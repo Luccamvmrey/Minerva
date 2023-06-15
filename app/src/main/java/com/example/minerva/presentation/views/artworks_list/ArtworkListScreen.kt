@@ -44,9 +44,7 @@ fun ArtworkListScreen(
     Scaffold(
         topBar = {
             TopBarArtworksList(
-                onClickSearch = {
-
-                },
+                viewModel = viewModel,
                 gridCellsState = gridCellsState,
                 onClickChangeGrid = {
                     gridCellsState = it
